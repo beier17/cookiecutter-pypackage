@@ -1,0 +1,54 @@
+[project]
+name = "mypackage"
+version = "0.1.0"
+description = "Python package for Software Construction and Configuration assignment"
+readme = "README.md"
+authors = [
+  {name = "Kim Bei Er", email = "kimbeier03@gmail.com"}
+]
+maintainers = [
+  {name = "Kim Bei Er", email = "kimbeier03@gmail.com"}
+]
+classifiers = [
+    # TODO
+]
+license = {text = "MIT"}
+
+dependencies = [
+  "typer",
+  "fastapi",
+  "uvicorn[standard]"
+]
+
+requires-python = ">= 3.10"
+
+[project.optional-dependencies]
+test = [
+    "coverage",  # testing
+    "pytest",  # testing
+    "ruff",  # linting
+    "ty", # checking types
+    "ipdb", # debugging
+]
+
+[project.urls]
+bugs = "https://github.com/beier17/mypackage/issues"
+changelog = "https://github.com/beier17/mypackage/blob/master/changelog.md"
+homepage = "https://github.com/beier17/mypackage"
+
+[project.scripts]
+mypackage = "mypackage.cli:app"
+
+[tool.ty]
+# rules.TY015 = "warn"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F", "I", "B", "UP"
+]
+
+[tool.uv]
+package = true
