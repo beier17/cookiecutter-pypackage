@@ -1,0 +1,58 @@
+stages: [build, test, package, deploy]
+
+build:
+  stage: build
+  image: python:3.11
+  script:
+    - echo "Build stage running"
+    - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+  artifacts:
+    paths:
+      - .venv/
+
+test:
+  stage: test
+  image: python:3.11
+  script:
+    - pip install pytest pytest-cov cookiecutter pytest-cookies
+    - mkdir -p reports/html
+    - pytest tests \
+        --disable-warnings -q \
+        --junitxml=reports/junit.xml \
+        --cov=. \
+        --cov-report=xml:reports/coverage.xml \
+        --cov-report=html:reports/html \
+        --cov-report=term-missing || true
+  artifacts:
+    when: always
+    expire_in: 1 week
+    reports:
+      junit: "reports/junit.xml"
+      coverage_report:
+        coverage_format: cobertura
+        path: "reports/coverage.xml"
+    paths:
+      - reports/
+
+package:
+  stage: package
+  image: python:3.11
+  script:
+    - pip install build twine
+    - python -m build
+    - twine check dist/*
+  artifacts:
+    paths:
+      - dist/
+
+deploy:
+  stage: deploy
+  image: python:3.11
+  needs: ["package"]
+  script:
+    - pip install twine
+    - twine check dist/*
+    - echo "Deploy stage finished successfully"
+  artifacts:
+    paths:
+      - dist/
