@@ -24,7 +24,7 @@ from watchdog.observers import Observer
 
 class ChangeHandler(FileSystemEventHandler):
     def __init__(self):
-        self.last_trigger_time = 0
+        self.last_run = 0
         self.debounce_period = 2  # seconds
 
     def on_any_event(self, event):
@@ -35,8 +35,8 @@ class ChangeHandler(FileSystemEventHandler):
             return
 
         current_time = time.time()
-        if current_time - self.last_trigger_time > self.debounce_period:
-            self.last_trigger_time = current_time
+        if current_time - self.last_run > self.debounce_period:
+            self.last_run = current_time
             print(f"Detected change in {event.src_path}. Running cookiecutter...")
             try:
                 # The output directory is in the repo root (matches cookiecutter.json pypi_package_name)
