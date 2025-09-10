@@ -13,13 +13,11 @@ classifiers = [
     # TODO
 ]
 license = {text = "MIT"}
-
 dependencies = [
   "typer",
   "fastapi",
   "uvicorn[standard]"
 ]
-
 requires-python = ">= 3.10"
 
 [project.optional-dependencies]
@@ -32,22 +30,29 @@ test = [
 ]
 
 [project.urls]
-bugs = "https://github.com/beier17/mypackage/issues"
-changelog = "https://github.com/beier17/mypackage/blob/master/changelog.md"
-homepage = "https://github.com/beier17/mypackage"
+bugs = "https://github.com/beier17/MyPackage/issues"
+changelog = "https://github.com/beier17/MyPackage/blob/master/changelog.md"
+homepage = "https://github.com/beier17/MyPackage"
 
 [project.scripts]
-mypackage = "mypackage.cli:app"
+MyPackage = "MyPackage.cli:app"
 
 [tool.ty]
-# rules.TY015 = "warn"
+# All rules are enabled as "error" by default; no need to specify unless overriding.
+# Example override: relax a rule for the entire project (uncomment if needed).
+# rules.TY015 = "warn"  # For invalid-argument-type, warn instead of error.
 
 [tool.ruff]
 line-length = 120
 
 [tool.ruff.lint]
 select = [
-    "E", "W", "F", "I", "B", "UP"
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
 ]
 
 [tool.uv]

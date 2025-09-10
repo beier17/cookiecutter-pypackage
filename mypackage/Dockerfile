@@ -4,15 +4,18 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# Copy project files into container
+# Copy project files
 COPY . .
 
 # Install pip + dependencies
 RUN pip install --upgrade pip \
     && pip install .
 
-# Run tests during build (ensures code works)
+# Set PYTHONPATH so Python sees src/ as root
+ENV PYTHONPATH=/app/src
+
+# Run tests during build
 RUN pytest || true
 
 # Default command: run package as module
-CMD ["python", "-m", "mypackage"]
+CMD ["uvicorn", "mypackage.app:app", "--host", "0.0.0.0", "--port", "8000"]

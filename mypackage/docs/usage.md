@@ -3,5 +3,5 @@
 To use MyPackage in a project:
 
 ```python
-import mypackage
+import MyPackage
 ```

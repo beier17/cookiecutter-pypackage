@@ -8,7 +8,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/beier17/mypackage/issues.
+Report bugs at https://github.com/beier17/MyPackage/issues.
 
 If you are reporting a bug, please include:
 
@@ -30,7 +30,7 @@ MyPackage could always use more documentation, whether as part of the official d
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/beier17/mypackage/issues.
+The best way to send feedback is to file an issue at https://github.com/beier17/MyPackage/issues.
 
 If you are proposing a feature:
 
@@ -40,20 +40,20 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `mypackage` for local development.
+Ready to contribute? Here's how to set up `MyPackage` for local development.
 
-1. Fork the `mypackage` repo on GitHub.
+1. Fork the `MyPackage` repo on GitHub.
 2. Clone your fork locally:
 
    ```sh
-   git clone git@github.com:your_name_here/mypackage.git
+   git clone git@github.com:your_name_here/MyPackage.git
    ```
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development:
 
    ```sh
-   mkvirtualenv mypackage
-   cd mypackage/
+   mkvirtualenv MyPackage
+   cd MyPackage/
    python setup.py develop
    ```
 
@@ -99,7 +99,7 @@ Before you submit a pull request, check that it meets these guidelines:
 To run a subset of tests:
 
 ```sh
-pytest tests.test_mypackage
+pytest tests.test_MyPackage
 ```
 
 ## Deploying

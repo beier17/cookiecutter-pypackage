@@ -16,23 +16,23 @@ pip install mypackage
 
 ## From source
 
-The source files for MyPackage can be downloaded from the [Github repo](https://github.com/beier17/mypackage).
+The source files for MyPackage can be downloaded from the [Github repo](https://github.com/beier17/MyPackage).
 
 You can either clone the public repository:
 
 ```sh
-git clone git://github.com/beier17/mypackage
+git clone git://github.com/beier17/MyPackage
 ```
 
-Or download the [tarball](https://github.com/beier17/mypackage/tarball/master):
+Or download the [tarball](https://github.com/beier17/MyPackage/tarball/master):
 
 ```sh
-curl -OJL https://github.com/beier17/mypackage/tarball/master
+curl -OJL https://github.com/beier17/MyPackage/tarball/master
 ```
 
 Once you have a copy of the source, you can install it with:
 
 ```sh
-cd mypackage
+cd MyPackage
 uv pip install .
 ```
