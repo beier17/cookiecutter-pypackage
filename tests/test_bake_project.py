@@ -56,8 +56,8 @@ def check_output_inside_dir(command, dirpath):
 def test_year_compute_in_license_file_case(cookies):
     with bake_in_temp_dir(cookies) as result:
         license_file_path = result.project.join("LICENSE")
-        now = datetime.datetime.now()
-        assert str(now.year) in license_file_path.read()
+        current_times = datetime.datetime.now() # made changes here from now to current_time
+        assert str(current_times.year) in license_file_path.read()
 
 
 def project_info(result):
